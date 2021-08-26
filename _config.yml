@@ -14,7 +14,8 @@ github_repo: "PythonClub"
 
 # OPTIONAL: override baseurl and url if using a custom domain
 # Note: leave out the trailing / from this value. 
-url: "https://SylvainDLDK.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+#url: "https://SylvainDLDK.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://pythonclub.sylvaindldk.fr"
 
 ###########################################################
 #########  Special Instructions for baseurl ###############
