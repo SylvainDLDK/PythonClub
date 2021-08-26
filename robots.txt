@@ -1,1 +1,1 @@
-Sitemap: https://sylvaindldk.github.io/PythonClub/sitemap.xml
+Sitemap: http://pythonclub.sylvaindldk.fr/sitemap.xml
