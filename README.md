@@ -6,7 +6,7 @@
 
 https://SylvainDLDK.github.io/PythonClub/
 
-http://pythonclub.sylvaindldk.fr
+https://pythonclub.sylvaindldk.fr
 
 # My Blog
 
