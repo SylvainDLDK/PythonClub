@@ -3,9 +3,9 @@
     
         "post0": {
             "title": "Spherical Harmonics",
-            "content": "%pylab from scipy.special import sph_harm . Using matplotlib backend: Qt5Agg Populating the interactive namespace from numpy and matplotlib . phi = np.linspace(0,np.pi,100) dphi = phi[1]-phi[0] theta = np.linspace(0,2*np.pi,100) dtheta = theta[1]-theta[0] PHI, THETA = np.meshgrid(phi,theta) Y_11 = sph_harm(1,1,THETA,PHI) Y_10 = sph_harm(0,1,THETA,PHI) Y_1p1 = sph_harm(-1,1,THETA,PHI) Y_22 = sph_harm(2,2,THETA,PHI) Y_21 = sph_harm(1,2,THETA,PHI) Y_20 = sph_harm(0,2,THETA,PHI) . np.sum(Y_11*Y_11*np.conj(Y_22)*np.sin(PHI)*dtheta*dphi) . (0.3121407693092947+1.4301202117769685e-18j) . np.sum(Y_11*np.conj(Y_10)*np.sin(PHI)*dtheta*dphi) . (-1.0842021724855044e-18+1.0842021724855044e-18j) . ds = dx dy ds = dr rdθ dV = dx dy dz dV = r^2 sin θ dr dθ dϕ dΩ = sin θ dθ dϕ .",
-            "url": "http://pythonclub.sylvaindldk.fr/2021/08/26/Spherical-harmonics.html",
-            "relUrl": "/2021/08/26/Spherical-harmonics.html",
+            "content": "scipy.special.sph_harm . %pylab from scipy.special import sph_harm . Using matplotlib backend: Qt5Agg Populating the interactive namespace from numpy and matplotlib . phi = np.linspace(0,np.pi,100) dphi = phi[1]-phi[0] theta = np.linspace(0,2*np.pi,100) dtheta = theta[1]-theta[0] PHI, THETA = np.meshgrid(phi,theta) Y_11 = sph_harm(1,1,THETA,PHI) Y_10 = sph_harm(0,1,THETA,PHI) Y_1p1 = sph_harm(-1,1,THETA,PHI) Y_22 = sph_harm(2,2,THETA,PHI) Y_21 = sph_harm(1,2,THETA,PHI) Y_20 = sph_harm(0,2,THETA,PHI) . Integral as a discrete sum . In non-cartesian coordinates, be aware of: . ds = dx dy ds = dr rdθ . dV = dx dy dz dV = r^2 sin θ dr dθ dϕ . dΩ = sin θ dθ dϕ . np.sum(Y_11*Y_11*np.conj(Y_22)*np.sin(PHI)*dtheta*dphi) . (0.3121407693092947+1.4301202117769685e-18j) . np.sum(Y_11*np.conj(Y_10)*np.sin(PHI)*dtheta*dphi) . (-1.0842021724855044e-18+1.0842021724855044e-18j) .",
+            "url": "http://pythonclub.sylvaindldk.fr/scipy/2021/08/26/Spherical-harmonics.html",
+            "relUrl": "/scipy/2021/08/26/Spherical-harmonics.html",
             "date": " • Aug 26, 2021"
         }
         
