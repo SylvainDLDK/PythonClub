@@ -97,26 +97,35 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#website-creation">Website creation</a>
+<li class="toc-entry toc-h1"><a href="#birth-of-the-python-club-website">Birth of the Python Club website</a></li>
+<li class="toc-entry toc-h1"><a href="#from-jupyter-notebooks-to-html-contents">From Jupyter notebooks to html contents</a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#adding-blog-posts">Adding blog posts</a></li>
 </ul>
 </li>
-</ul><h1 id="website-creation">
-<a class="anchor" href="#website-creation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Website creation</h1>
+</ul><h1 id="birth-of-the-python-club-website">
+<a class="anchor" href="#birth-of-the-python-club-website" aria-hidden="true"><span class="octicon octicon-link"></span></a>Birth of the Python Club website</h1>
 
 <p>The goal is to set up a simple website, in the form of a blog, to keep tracks of the various subjects that we discuss at our weekly Python club.</p>
 
 <p>A beginner-friendly solution would be to use the <a href="https://sites.google.com/new?tgif=d">Google Sites</a> graphical-user interface to generate the site and add contents. This is convenient for any static websites where you want to present yourself (CV, lists of projects, …) or your research group / company.</p>
 
-<p>For our Python club, I preferred a slightly more tech-savvy approach based on GitHub Pages and the fastpages project. I was attracted to this solution by the prospect of effortlessly transforming the Jupyter notebooks used for our club presentation into html content.</p>
+<p>For our Python club, I preferred a slightly more tech-savvy approach based on GitHub Pages and the fastpages project. I was attracted to this solution by the prospect of effortlessly transforming the Jupyter notebooks used for our club presentations into html contents.</p>
 
-<p>Links:</p>
+<h1 id="from-jupyter-notebooks-to-html-contents">
+<a class="anchor" href="#from-jupyter-notebooks-to-html-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>From Jupyter notebooks to html contents</h1>
+
+<p>What we produce in the Python club are Jupyter notebooks, which are JSON-formatted files. To display the notebooks on this blog, we need to convert these files into html and host the contents to be publicly available on the web. All these daunting tasks are going to be performed freely by:</p>
 <ul>
   <li><a href="https://pages.github.com/">GitHub pages</a></li>
   <li><a href="https://jekyllrb.com/">Jekyll</a></li>
   <li><a href="https://github.com/fastai/fastpages">fastpages</a></li>
 </ul>
+
+<p>The idea, explained in fastpages website, is as follows. 
+GitHub Pages hosts the contents of our website as a GitHub repository (check <a href="https://github.com/SylvainDLDK/PythonClub">our repo</a>) and will send it to any Pythonistas wishing to access our website through their web-browser at <a href="https://SylvainDLDK.github.io/PythonClub">https://SylvainDLDK.github.io/PythonClub</a>.</p>
+
+<p>When we add a new notebook to the repository, a workflow designed by the pastpages project is automatically started as a GitHub Action. This will first convert the notebooks into a markdown file (using <a href="https://nbdev.fast.ai/index.html">nbdev</a>), and then run a Jekyll script to transform it in a website.</p>
 
 <h2 id="adding-blog-posts">
 <a class="anchor" href="#adding-blog-posts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adding blog posts</h2>
