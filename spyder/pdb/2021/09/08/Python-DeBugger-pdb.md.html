@@ -7,16 +7,17 @@
 <title>Debugging in Python | IMS Python Club</title>
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Debugging in Python" />
+<meta name="author" content="<a href='https://github.com/SylvainDLDK'>Sylvain DLDK</a> " />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The Python DeBugger (pdb) module: why, when and how to use it?" />
 <meta property="og:description" content="The Python DeBugger (pdb) module: why, when and how to use it?" />
-<link rel="canonical" href="http://pythonclub.sylvaindldk.fr/spyder/pdb/2021/09/08/Python-DeBugger-pdb.html" />
-<meta property="og:url" content="http://pythonclub.sylvaindldk.fr/spyder/pdb/2021/09/08/Python-DeBugger-pdb.html" />
+<link rel="canonical" href="http://pythonclub.sylvaindldk.fr/spyder/pdb/2021/09/08/Python-DeBugger-pdb.md.html" />
+<meta property="og:url" content="http://pythonclub.sylvaindldk.fr/spyder/pdb/2021/09/08/Python-DeBugger-pdb.md.html" />
 <meta property="og:site_name" content="IMS Python Club" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-09-08T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2021-09-08T00:00:00-05:00","url":"http://pythonclub.sylvaindldk.fr/spyder/pdb/2021/09/08/Python-DeBugger-pdb.html","@type":"BlogPosting","headline":"Debugging in Python","dateModified":"2021-09-08T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://pythonclub.sylvaindldk.fr/spyder/pdb/2021/09/08/Python-DeBugger-pdb.html"},"description":"The Python DeBugger (pdb) module: why, when and how to use it?","@context":"https://schema.org"}</script>
+{"datePublished":"2021-09-08T00:00:00-05:00","url":"http://pythonclub.sylvaindldk.fr/spyder/pdb/2021/09/08/Python-DeBugger-pdb.md.html","@type":"BlogPosting","headline":"Debugging in Python","dateModified":"2021-09-08T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://pythonclub.sylvaindldk.fr/spyder/pdb/2021/09/08/Python-DeBugger-pdb.md.html"},"author":{"@type":"Person","name":"<a href='https://github.com/SylvainDLDK'>Sylvain DLDK</a> "},"description":"The Python DeBugger (pdb) module: why, when and how to use it?","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://pythonclub.sylvaindldk.fr/feed.xml" title="IMS Python Club" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,11 +74,13 @@ window.onload = wrap_img;
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Debugging in Python</h1><p class="page-description">The Python DeBugger (pdb) module: why, when and how to use it?</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-08T00:00:00-05:00" itemprop="datePublished">
         Sep 8, 2021
-      </time>
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name"><a href='https://github.com/SylvainDLDK'>Sylvain DLDK</a> </span></span>
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -97,24 +100,23 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#pdb-python-debugger">pdb: Python DeBugger</a></li>
 <li class="toc-entry toc-h1"><a href="#types-of-bugs-i-often-encounter">Types of bugs I often encounter</a></li>
 <li class="toc-entry toc-h1"><a href="#debugging-without-pdb">Debugging without pdb</a></li>
 <li class="toc-entry toc-h1"><a href="#where-pdb-seems-to-be-a-powerful-tool">Where pdb seems to be a powerful tool</a></li>
 <li class="toc-entry toc-h1"><a href="#learning-to-use-pdb">Learning to use pdb</a></li>
-</ul><h1 id="pdb-python-debugger">
-<a class="anchor" href="#pdb-python-debugger" aria-hidden="true"><span class="octicon octicon-link"></span></a>pdb: Python DeBugger</h1>
+<li class="toc-entry toc-h1"><a href="#links">Links</a></li>
+</ul><p>I often wondered when/how to use the <a href="https://docs.spyder-ide.org/3/debugging.html">“Debug” command</a> in the Spyder interface, and what was the <a href="https://docs.python.org/3/library/pdb.html">pdb module</a> called by this command. So I finally decided to look seriously at this tool and make it this week’s topic.</p>
 
-<p>I often wondered when/how to use the <a href="https://docs.spyder-ide.org/3/debugging.html">“Debug” command</a> in the Spyder interface, and what was the <a href="https://docs.python.org/3/library/pdb.html">pdb module</a> called by this command. So I decided to look at this tool and make it this week’s topic.</p>
+<p>I only use Python within <a href="https://www.spyder-ide.org/">Spyder</a> or <a href="https://jupyter.org/index.html">Jupyter Lab</a>, and debug mainly in Spyder, so I will focus on tools to debug when writing and running scripts within Spyder. However, most concepts and tools described below are not at all limited to Spyder.</p>
 
 <h1 id="types-of-bugs-i-often-encounter">
 <a class="anchor" href="#types-of-bugs-i-often-encounter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types of bugs I often encounter</h1>
 
-<p>Before going into the details of debugging options and the Python DeBugger (pdb) module, let’s review typical situations that we want to debug:</p>
+<p>Before going into the various debugging options and the Python DeBugger (pdb) module, let’s review typical situations that we need to debug:</p>
 <ul>
   <li>an <a href="https://docs.python.org/3/tutorial/errors.html">Error or Exception</a> has been raised while running a script, resulting in a crash: the script did not run to completion.</li>
   <li>a script ran to completion without raising any error, but its behavior is strange: unexpected output or incorrect plotting…</li>
-  <li>a GUI (Graphical User Interface) that you coded do not react correctly when you press some buttons or to some other events (incoming data…)</li>
+  <li>a GUI (Graphical User Interface) that I coded do not react correctly when pressing some buttons or to some other events (incoming data…)</li>
   <li>communication with an instrument seems broken</li>
   <li>…</li>
 </ul>
@@ -122,39 +124,68 @@ window.onload = wrap_img;
 <h1 id="debugging-without-pdb">
 <a class="anchor" href="#debugging-without-pdb" aria-hidden="true"><span class="octicon octicon-link"></span></a>Debugging without pdb</h1>
 
-<p>Most of the time, we can find the origin of the problem and solve it by:</p>
+<p>Most of the time, we can find the origin of a problem and solve it by:</p>
 <ul>
   <li>using the <a href="https://realpython.com/python-traceback/">traceback</a> that Python prints in your console when an exception is raised. Reading and understanding the traceback seems complicated at first, but you become extremely efficient at solving bugs when using it. I especially like the clickable links on the traceback that brings your cursor directly on the faulty line in the Editor.</li>
-  <li>when your script returns, your ipython console is available for you to explore variables that are suspect.</li>
-  <li>breaking the code in smaller pieces, which you test one after another, usually goes a long way towards solving a bug. The “Run” command in Spyder’s navigation bar contains helpful tools for this:
+  <li>when a script returns, the ipython console is available for us to explore variables that are suspect.</li>
+  <li>breaking the code in smaller pieces, and testing them one after another, usually goes a long way towards solving a bug. The “Run” command in Spyder’s navigation bar contains helpful tools for this:
     <ul>
       <li>F9 to run a single line or a selection of lines</li>
-      <li>split a long code into several <a href="https://docs.spyder-ide.org/current/panes/editor.html#defining-code-cells">cells</a> (using #%%), and run the cells one after another using Ctrl + Enter (or Shift + Enter). This should be familiar to you if you are used to work with Jupyter Notebooks.</li>
+      <li>split a long code into several <a href="https://docs.spyder-ide.org/current/panes/editor.html#defining-code-cells">cells</a> (using #%%), and run the cells one after another using Ctrl + Enter (or Shift + Enter). This should be familiar for those familiar to with Jupyter Notebooks.</li>
     </ul>
   </li>
 </ul>
 
 <h1 id="where-pdb-seems-to-be-a-powerful-tool">
 <a class="anchor" href="#where-pdb-seems-to-be-a-powerful-tool" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where pdb seems to be a powerful tool</h1>
+
 <p>However, the above solutions do not work when:</p>
 <ul>
-  <li>you work on a GUI and the ipython console is stuck in the infinite event loop of the application until you kill the application. The console is not available to explore variables.</li>
-  <li>when the variables that you want to explore are in the local scope of a function, which you cannot access as the ipython console only knows the global variable.</li>
+  <li>working on a GUI and the ipython console is stuck in the infinite event loop of the application until the app is closed: the console is not available to explore variables.</li>
+  <li>when the variables that we want to explore are in the local scope of a function, which we cannot access as the ipython console only knows the global variables.</li>
 </ul>
 
-<p>In such case, I find myself starting to use print() everywhere in the code. It always works, but after a lot of time and pain.  I will often have to print a lot of variables to find out where is the problem, and I cannot even manipulate these variables as easily as if there were accessible from a python console. For example, if I want to investigate an array a, I will:</p>
+<p>In such case, I find myself starting to use print() everywhere in my code. It always works, but after a lot of time and pain.  I will often have to print a lot of variables to find out where is the problem, and I cannot even manipulate these variables as easily as if there were accessible from a python console.</p>
+
+<p>For example, if I want to investigate an array a, I will check:</p>
 <ul>
-  <li>print a few values to check their type print(a)</li>
-  <li>print its shape print(a.shape)</li>
-  <li>print min/max print(a.min(), a.max())</li>
-  <li>…
-This is a lot of print() statement to write in the script. It would be much easier if the array would be directly available in the console, where I could explore it and manipulate it with the script methods that I am developing.</li>
+  <li>a few values to check their type print(a)</li>
+  <li>its shape print(a.shape)</li>
+  <li>min/max print(a.min(), a.max())</li>
+  <li>…</li>
+  <li>This is a lot of print() statements to write in the script. It would be much easier if the array would be directly available in the console, where I could explore it and manipulate it with the script methods that I am developing.</li>
 </ul>
+
+<p>This is where the Python DeBugger pops in.</p>
 
 <h1 id="learning-to-use-pdb">
 <a class="anchor" href="#learning-to-use-pdb" aria-hidden="true"><span class="octicon octicon-link"></span></a>Learning to use pdb</h1>
 
-<p>In progress</p>
+<p>See links below for now…</p>
+
+<h1 id="links">
+<a class="anchor" href="#links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Links</h1>
+
+<ul>
+  <li>
+<a href="https://docs.python.org/3/library/pdb.html">pdb doc</a> by python</li>
+  <li>
+<a href="https://realpython.com/python-debugging-pdb/">Tutorial to pdb</a> by RealPython</li>
+  <li>
+<a href="https://realpython.com/python-traceback/">Understanding the python traceback</a> by RealPython</li>
+  <li>
+<a href="https://docs.spyder-ide.org/current/panes/debugging.html">Debugger tutorial</a> by Spyder</li>
+  <li>
+<a href="https://pythonconquerstheuniverse.wordpress.com/2009/09/10/debugging-in-python/">Introduction to pdb</a> by Steve Ferg</li>
+  <li>
+<a href="https://wiki.math.ntnu.no/anaconda/debugging">Debugging Python programs in Spyder</a> by Kristian Hove</li>
+  <li>
+<a href="https://jakevdp.github.io/PythonDataScienceHandbook/01.06-errors-and-debugging.html">Errors and Debugging</a> by Jake VanderPlas</li>
+  <li>
+<a href="https://switowski.com/blog/ipython-debugging">5 Ways of Debugging with IPython</a> by Sebastian Witowski</li>
+  <li>
+<a href="https://fangohr.github.io/blog/spyder-the-scientific-python-development-environment.html#debugging">Debugging with Spyder</a> by Hans Fagohr</li>
+</ul>
 
   </div><!-- from https://github.com/utterance/utterances -->
 <script src="https://utteranc.es/client.js"
@@ -164,7 +195,7 @@ This is a lot of print() statement to write in the script. It would be much easi
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/spyder/pdb/2021/09/08/Python-DeBugger-pdb.html" hidden></a>
+</script><a class="u-url" href="/spyder/pdb/2021/09/08/Python-DeBugger-pdb.md.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
