@@ -1,6 +1,19 @@
-﻿# pdb: Python DeBugger
+---
+title: "Debugging in Python"
+description: "The Python DeBugger (pdb) module: why, when and how to use it?"
+layout: post
+toc: true
+comments: true
+hide: false
+search_exclude: true
+categories: [spyder, pdb]
+---
 
-I often wondered when/how to use the ["Debug" command](https://docs.spyder-ide.org/3/debugging.html) in the Spyder interface, and what was the [pdb module](https://docs.python.org/3/library/pdb.html) called by this command. 
+# pdb: Python DeBugger
+
+I often wondered when/how to use the ["Debug" command](https://docs.spyder-ide.org/3/debugging.html) in the Spyder interface, and what was the [pdb module](https://docs.python.org/3/library/pdb.html) called by this command. So I decided to look at this tool and make it this week's topic. 
+
+# Types of bugs I often encounter
 
 Before going into the details of debugging options and the Python DeBugger (pdb) module, let's review typical situations that we want to debug:
 - an [Error or Exception](https://docs.python.org/3/tutorial/errors.html) has been raised while running a script, resulting in a crash: the script did not run to completion.  
@@ -9,6 +22,8 @@ Before going into the details of debugging options and the Python DeBugger (pdb)
 - communication with an instrument seems broken
 - ...
 
+# Debugging without pdb
+
 Most of the time, we can find the origin of the problem and solve it by:
 - using the [traceback](https://realpython.com/python-traceback/) that Python prints in your console when an exception is raised. Reading and understanding the traceback seems complicated at first, but you become extremely efficient at solving bugs when using it. I especially like the clickable links on the traceback that brings your cursor directly on the faulty line in the Editor. 
 - when your script returns, your ipython console is available for you to explore variables that are suspect.
@@ -16,6 +31,7 @@ Most of the time, we can find the origin of the problem and solve it by:
 	- F9 to run a single line or a selection of lines 
 	- split a long code into several [cells](https://docs.spyder-ide.org/current/panes/editor.html#defining-code-cells) (using #%%), and run the cells one after another using Ctrl + Enter (or Shift + Enter). This should be familiar to you if you are used to work with Jupyter Notebooks. 
 
+# Where pdb seems to be a powerful tool
 However, the above solutions do not work when:  
 -  you work on a GUI and the ipython console is stuck in the infinite event loop of the application until you kill the application. The console is not available to explore variables.
 - when the variables that you want to explore are in the local scope of a function, which you cannot access as the ipython console only knows the global variable. 
@@ -26,3 +42,7 @@ In such case, I find myself starting to use print() everywhere in the code. It a
 - print min/max print(a.min(), a.max())
 - ...
 This is a lot of print() statement to write in the script. It would be much easier if the array would be directly available in the console, where I could explore it and manipulate it with the script methods that I am developing. 
+
+# Learning to use pdb
+
+In progress
