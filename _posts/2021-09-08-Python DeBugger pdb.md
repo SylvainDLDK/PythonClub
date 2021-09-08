@@ -46,7 +46,7 @@ For example, if I want to investigate an array a, I will check:
 - its shape print(a.shape)
 - min/max print(a.min(), a.max())
 - ...
-- 
+
 This is a lot of print() statements to write in the script. It would be much easier if the array would be directly available in the console, where I could explore it and manipulate it with the script methods that I am developing. 
 
 This is where the Python DeBugger pops in. 
