@@ -1,0 +1,39 @@
+<h1 id="pdb-python-debugger">pdb: Python DeBugger</h1>
+
+<p>I often wondered when/how to use the <a href="https://docs.spyder-ide.org/3/debugging.html">“Debug” command</a> in the Spyder interface, and what was the <a href="https://docs.python.org/3/library/pdb.html">pdb module</a> called by this command.</p>
+
+<p>Before going into the details of debugging options and the Python DeBugger (pdb) module, let’s review typical situations that we want to debug:</p>
+<ul>
+  <li>an <a href="https://docs.python.org/3/tutorial/errors.html">Error or Exception</a> has been raised while running a script, resulting in a crash: the script did not run to completion.</li>
+  <li>a script ran to completion without raising any error, but its behavior is strange: unexpected output or incorrect plotting…</li>
+  <li>a GUI (Graphical User Interface) that you coded do not react correctly when you press some buttons or to some other events (incoming data…)</li>
+  <li>communication with an instrument seems broken</li>
+  <li>…</li>
+</ul>
+
+<p>Most of the time, we can find the origin of the problem and solve it by:</p>
+<ul>
+  <li>using the <a href="https://realpython.com/python-traceback/">traceback</a> that Python prints in your console when an exception is raised. Reading and understanding the traceback seems complicated at first, but you become extremely efficient at solving bugs when using it. I especially like the clickable links on the traceback that brings your cursor directly on the faulty line in the Editor.</li>
+  <li>when your script returns, your ipython console is available for you to explore variables that are suspect.</li>
+  <li>breaking the code in smaller pieces, which you test one after another, usually goes a long way towards solving a bug. The “Run” command in Spyder’s navigation bar contains helpful tools for this:
+    <ul>
+      <li>F9 to run a single line or a selection of lines</li>
+      <li>split a long code into several <a href="https://docs.spyder-ide.org/current/panes/editor.html#defining-code-cells">cells</a> (using #%%), and run the cells one after another using Ctrl + Enter (or Shift + Enter). This should be familiar to you if you are used to work with Jupyter Notebooks.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>However, the above solutions do not work when:</p>
+<ul>
+  <li>you work on a GUI and the ipython console is stuck in the infinite event loop of the application until you kill the application. The console is not available to explore variables.</li>
+  <li>when the variables that you want to explore are in the local scope of a function, which you cannot access as the ipython console only knows the global variable.</li>
+</ul>
+
+<p>In such case, I find myself starting to use print() everywhere in the code. It always works, but after a lot of time and pain.  I will often have to print a lot of variables to find out where is the problem, and I cannot even manipulate these variables as easily as if there were accessible from a python console. For example, if I want to investigate an array a, I will:</p>
+<ul>
+  <li>print a few values to check their type print(a)</li>
+  <li>print its shape print(a.shape)</li>
+  <li>print min/max print(a.min(), a.max())</li>
+  <li>…
+This is a lot of print() statement to write in the script. It would be much easier if the array would be directly available in the console, where I could explore it and manipulate it with the script methods that I am developing.</li>
+</ul>
