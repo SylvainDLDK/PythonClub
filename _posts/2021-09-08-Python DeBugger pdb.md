@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Debugging in Python"
 description: "The Python DeBugger (pdb) module: why, when and how to use it?"
 layout: post
