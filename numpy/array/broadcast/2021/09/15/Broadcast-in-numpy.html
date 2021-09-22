@@ -11,13 +11,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="How to use the numpy concept of array broadcasting?" />
 <meta property="og:description" content="How to use the numpy concept of array broadcasting?" />
-<link rel="canonical" href="http://pythonclub.sylvaindldk.fr/numpy/array/broadcast/2021/09/22/Broadcast-in-numpy.html" />
-<meta property="og:url" content="http://pythonclub.sylvaindldk.fr/numpy/array/broadcast/2021/09/22/Broadcast-in-numpy.html" />
+<link rel="canonical" href="http://pythonclub.sylvaindldk.fr/numpy/array/broadcast/2021/09/15/Broadcast-in-numpy.html" />
+<meta property="og:url" content="http://pythonclub.sylvaindldk.fr/numpy/array/broadcast/2021/09/15/Broadcast-in-numpy.html" />
 <meta property="og:site_name" content="IMS Python Club" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-09-22T00:00:00-05:00" />
+<meta property="article:published_time" content="2021-09-15T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2021-09-22T00:00:00-05:00","url":"http://pythonclub.sylvaindldk.fr/numpy/array/broadcast/2021/09/22/Broadcast-in-numpy.html","@type":"BlogPosting","headline":"Broadcasting in numpy","dateModified":"2021-09-22T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://pythonclub.sylvaindldk.fr/numpy/array/broadcast/2021/09/22/Broadcast-in-numpy.html"},"author":{"@type":"Person","name":"Sylvain de Léséleuc"},"description":"How to use the numpy concept of array broadcasting?","@context":"https://schema.org"}</script>
+{"url":"http://pythonclub.sylvaindldk.fr/numpy/array/broadcast/2021/09/15/Broadcast-in-numpy.html","@type":"BlogPosting","headline":"Broadcasting in numpy","dateModified":"2021-09-15T00:00:00-05:00","datePublished":"2021-09-15T00:00:00-05:00","author":{"@type":"Person","name":"Sylvain de Léséleuc"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://pythonclub.sylvaindldk.fr/numpy/array/broadcast/2021/09/15/Broadcast-in-numpy.html"},"description":"How to use the numpy concept of array broadcasting?","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://pythonclub.sylvaindldk.fr/feed.xml" title="IMS Python Club" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -88,8 +88,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Broadcasting in numpy</h1><p class="page-description">How to use the numpy concept of array broadcasting?</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-22T00:00:00-05:00" itemprop="datePublished">
-        Sep 22, 2021
+    <h1 class="post-title p-name" itemprop="name headline">Broadcasting in numpy</h1><p class="page-description">How to use the numpy concept of array broadcasting?</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-09-15T00:00:00-05:00" itemprop="datePublished">
+        Sep 15, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span class="p-author h-card" itemprop="name">Sylvain de Léséleuc</span></span>
@@ -120,19 +120,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/SylvainDLDK/PythonClub/tree/master/_notebooks/2021-09-22-Broadcast-in-numpy.ipynb" role="button" target="_blank">
+    <a href="https://github.com/SylvainDLDK/PythonClub/tree/master/_notebooks/2021-09-15-Broadcast-in-numpy.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/SylvainDLDK/PythonClub/master?filepath=_notebooks%2F2021-09-22-Broadcast-in-numpy.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/SylvainDLDK/PythonClub/master?filepath=_notebooks%2F2021-09-15-Broadcast-in-numpy.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/SylvainDLDK/PythonClub/blob/master/_notebooks/2021-09-22-Broadcast-in-numpy.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/SylvainDLDK/PythonClub/blob/master/_notebooks/2021-09-15-Broadcast-in-numpy.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -147,14 +147,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#The-loopy-way">The loopy way </a></li>
 <li class="toc-entry toc-h2"><a href="#The-numpy-beginner">The numpy beginner </a></li>
 <li class="toc-entry toc-h2"><a href="#The-numpy-aware-solution">The numpy aware solution </a></li>
-<li class="toc-entry toc-h2"><a href="#On-the-importance-of-sufficient-sampling">On the importance of sufficient sampling </a></li>
+<li class="toc-entry toc-h2"><a href="#On-the-importance-of-sampling-noise">On the importance of sampling noise </a></li>
 </ul>
 </li>
 </ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2021-09-22-Broadcast-in-numpy.ipynb
+# file to edit: _notebooks/2021-09-15-Broadcast-in-numpy.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -426,7 +426,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We know use the concept of broadcasting to remove the last loop.</p>
+<p>We now use the concept of broadcasting to remove the last loop.</p>
 
 </div>
 </div>
@@ -532,8 +532,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="On-the-importance-of-sufficient-sampling">
-<a class="anchor" href="#On-the-importance-of-sufficient-sampling" aria-hidden="true"><span class="octicon octicon-link"></span></a>On the importance of sufficient sampling<a class="anchor-link" href="#On-the-importance-of-sufficient-sampling"> </a>
+<h2 id="On-the-importance-of-sampling-noise">
+<a class="anchor" href="#On-the-importance-of-sampling-noise" aria-hidden="true"><span class="octicon octicon-link"></span></a>On the importance of sampling noise<a class="anchor-link" href="#On-the-importance-of-sampling-noise"> </a>
 </h2>
 </div>
 </div>
@@ -542,8 +542,8 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>But why is the curve now so smooth compared to the previous implementations? And why is it a strangely distorted sinusoid?</p>
-<p>The spiky curves in the first two implementations have to do with the limited sampling of the noise process ($N_x = 50$) in the calculations, and would be attenuated by increasing $N_x$. But then why is it absent when using the broadcasting technique?</p>
-<p>This is because the noise becomes common for all values of x.</p>
+<p>The spiky curves in the first two implementations have to do with the limited sampling of the noise process ($N_{\rm noise} = 50$) in the calculations, and would be attenuated by increasing $N_{\rm noise}$. But then why is it absent when using the broadcasting technique?</p>
+<p>This is because the noise becomes common for all values of x with this technique.</p>
 <p>Because the execution time is so fast, we can easily increase the sampling of noise and, as shown below, we recover the expected damped sinusoid.</p>
 
 </div>
@@ -620,7 +620,7 @@ window.onload = wrap_img;
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/numpy/array/broadcast/2021/09/22/Broadcast-in-numpy.html" hidden></a>
+</script><a class="u-url" href="/numpy/array/broadcast/2021/09/15/Broadcast-in-numpy.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
