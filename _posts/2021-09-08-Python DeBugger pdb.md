@@ -31,7 +31,7 @@ Most of the time, we can find the origin of a problem and solve it by:
 - when a script returns, the ipython console is available for us to explore variables that are suspect.
 - breaking the code in smaller pieces, and testing them one after another, usually goes a long way towards solving a bug. The "Run" command in Spyder's navigation bar contains helpful tools for this: 
 	- F9 to run a single line or a selection of lines 
-	- split a long code into several [cells](https://docs.spyder-ide.org/current/panes/editor.html#defining-code-cells) (using #%%), and run the cells one after another using Ctrl + Enter (or Shift + Enter). This should be familiar for those familiar to with Jupyter Notebooks. 
+	- split a long code into several [cells](https://docs.spyder-ide.org/current/panes/editor.html#defining-code-cells) (using #%%), and run the cells one after another using Ctrl + Enter (or Shift + Enter). This should be familiar for those working with Jupyter Notebooks. 
 
 # Where pdb seems to be a powerful tool
 
